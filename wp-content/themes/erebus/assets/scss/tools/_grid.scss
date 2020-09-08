@@ -1,0 +1,45 @@
+$num-grid-col: 12;
+$grid-gutter-width: $gutter-width;
+
+@mixin column($i) {
+    width: percentage($i / $num-grid-col);
+}
+
+@mixin column-with-gutter($i, $grid-gutter-width: $grid-gutter-width) {
+    $gutter-col-width: percentage($i / $num-grid-col);
+
+    margin-left: #{$grid-gutter-width};
+    margin-top: #{$grid-gutter-width};
+    width: calc(#{$gutter-col-width} - #{$grid-gutter-width});
+}
+
+@mixin grid() {
+    display: flex;
+    flex-wrap: wrap;
+}
+
+@mixin grid-with-gutter($grid-gutter-width: $grid-gutter-width) {
+    @include grid();
+    margin-left: -#{$grid-gutter-width};
+    margin-top: -#{$grid-gutter-width};
+}
+
+.grid {
+    @include grid;
+
+    @for $i from 1 through $num-grid-col {
+        .col-#{$i} {
+            @include column($i);
+        }
+    }
+
+    &--with-gutter {
+        @include grid-with-gutter;
+
+        @for $i from 1 through $num-grid-col {
+            .col-#{$i} {
+                @include column-with-gutter($i);
+            }
+        }
+    }
+}

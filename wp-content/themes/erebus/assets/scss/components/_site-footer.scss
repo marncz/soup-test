@@ -1,0 +1,32 @@
+#site-footer {
+    height: 398px;
+    padding-top: 145px;
+}
+
+#site-footer > * > a {
+   text-decoration: underline;
+}
+
+.footer-print {
+    font-size: 17px;
+}
+
+@media (min-width: 769px) {
+    .small-footer-print {
+        font-size: 11px;
+    }
+}
+@media (max-width: 768px) {
+    .small-footer-print {
+        font-size: 15px;
+    }
+}
+
+.text-gray {
+    color: #888888;
+}
+
+#footer-logo {
+    width: 75%;
+    margin-top: 25px;
+}

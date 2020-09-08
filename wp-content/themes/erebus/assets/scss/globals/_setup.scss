@@ -1,0 +1,47 @@
+* {
+    -moz-osx-font-smoothing: grayscale;
+    -webkit-font-smoothing: antialiased;
+
+    &,
+    &::before,
+    &::after {
+        box-sizing: border-box;
+    }
+
+    &::placeholder {
+        color: $black;
+        opacity: .3;
+        transition: color $default-transition-timing;
+    }
+
+    &:focus::placeholder {
+        color: transparent !important;
+    }
+
+    &::selection {
+        background: lighten($black, 30%);
+    }
+
+    &::-moz-selection {
+        background: lighten($black, 30%);
+    }
+}
+
+html,
+body {
+    @include fluid-type($min_width, $max_width, $min_font, $max_font);
+    margin: 0;
+    padding: 0;
+    position: relative;
+}
+
+body {
+    background-color: $white;
+    color: $black;
+    font-family: $body-font-stack;
+    font-weight: 400;
+    line-height: 1.4;
+    overflow: auto;
+    -webkit-overflow-scrolling: touch;
+    overflow-x: hidden;
+}

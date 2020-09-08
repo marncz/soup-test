@@ -1,0 +1,28 @@
+// Global
+$body-font-stack: 'Lato', sans-serif;
+$section-margin: 4rem;
+$section-margin-mobile: 2rem;
+
+$gutter-width: 2;
+$mobile-gutter-width: 1rem;
+
+$default-transition-timing: .3s;
+$default-delay-timing: .2s;
+
+// Colours
+$black: #000;
+$white: #fff;
+
+// Breakpoint sizes
+$mobile-breakpoint: 730px;
+$tablet-breakpoint: 1025px;
+$phablet-breakpoint-lower: ($mobile-breakpoint + 1);
+$phablet-breakpoint: 729;
+$tablet-breakpoint-lower: ($mobile-breakpoint + 1);
+$desktop-breakpoint: ($tablet-breakpoint + 1);
+$large-desktop-breakpoint: 1100;
+
+$min-width: 320px;
+$max-width: 1440px;
+$min-font: 14px;
+$max-font: 16px;

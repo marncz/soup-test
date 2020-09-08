@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html class="no-js no-touchevents" {{ site.language_attributes }}>
+<head>
+    {% block head %}
+        <meta charset="{{ site.charset }}"/>
+        <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <meta name="viewport"
+              content="width=device-width, initial-scale=1, minimum-scale=1, maximum-scale=1, viewport-fit=cover">
+        <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png">
+        <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png">
+        <link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png">
+        <link rel="manifest" href="/site.webmanifest">
+        <link rel="mask-icon" href="/safari-pinned-tab.svg" color="#000000">
+        <meta name="msapplication-TileColor" content="#ffffff">
+        <meta name="theme-color" content="#ffffff">
+
+        <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+        <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;700&display=swap" rel="stylesheet">
+
+        {{ function('wp_head') }}
+    {% endblock %}
+</head>
+<body {{ function('body_class') }} data-template="views/base.twig">
+{% block body %}
+    {% block header %}
+        {% include 'views/partials/header.twig' %}
+    {% endblock %}
+    <div class="site-wrapper">
+        {% block main %}
+            <main class="site-content container container--large px-0" id="content">
+                {% block content %}
+                    Sorry, no content
+                {% endblock %}
+            </main>
+        {% endblock %}
+        {% block footer %}
+            {% include 'views/partials/footer.twig' %}
+        {% endblock %}
+    </div>
+
+    {{ function('wp_footer') }}
+{% endblock %}
+</body>
+</html>
+
+<script>
+function toggleNavigation() {
+
+    var navbar_overlay = document.getElementById("myNav");
+
+    if (navbar_overlay.style.width == "100%") {
+        document.body.classList.remove('lock-overlay-view');
+
+        document.getElementById('menu_open').style.display = "block";
+        document.getElementById('menu_close').style.display = "none";
+
+        document.getElementById('overlay-content').style.display = "none";
+        document.getElementById('overlay-content').style.opacity = 0;
+        navbar_overlay.style.width = "0%";
+
+    } else {
+        document.body.classList.add('lock-overlay-view');
+
+        document.getElementById('menu_open').style.display = "none";
+        document.getElementById('menu_close').style.display = "block";
+
+        document.getElementById('overlay-content').style.display = "block";
+        document.getElementById('overlay-content').style.opacity = 1;
+        navbar_overlay.style.width = "100%";
+    }
+
+}
+
+function closeNav() {
+  document.getElementById("myNav").style.width = "0%";
+}
+</script>

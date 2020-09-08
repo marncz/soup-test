@@ -1,0 +1,25 @@
+.content-section {
+    padding-bottom: $section-margin;
+    padding-top: $section-margin;
+
+    .inner-content {
+        margin-top: $section-margin / 2;
+    }
+
+    &--reduced-padding {
+        padding-bottom: $section-margin / 2;
+        padding-top: $section-margin / 2;
+    }
+
+    &--reduced-padding-bottom {
+        padding-bottom: $section-margin / 2;
+    }
+
+    &--reduced-padding-top {
+        padding-top: $section-margin / 2;
+    }
+
+    &--no-padding {
+        padding: 0;
+    }
+}

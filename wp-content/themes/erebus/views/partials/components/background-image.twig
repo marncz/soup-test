@@ -1,0 +1,30 @@
+<style>
+    @media (min-width: 1440px) {
+        .{{ class }} {
+            background-image: url({{ function('wp_get_attachment_image_url', image, image_size ~ '-jumbo') }});
+            background-size: cover;
+            background-repeat: no-repeat;
+        }
+    }
+    @media (max-width: 1440px) {
+        .{{ class }} {
+            background-image: url({{ function('wp_get_attachment_image_url', image, image_size ~ '-desktop') }});
+            background-size: cover;
+            background-repeat: no-repeat;
+        }
+    }
+    @media (max-width: 768px) {
+        .{{ class }} {
+            background-image: url({{ function('wp_get_attachment_image_url', image, image_size ~ '-tablet') }});
+            background-size: cover;
+            background-repeat: no-repeat;
+        }
+    }
+    @media (max-width: 360px) {
+        .{{ class }} {
+            background-image: url({{ function('wp_get_attachment_image_url', image, image_size ~ '-mobile') }});
+            background-size: cover;
+            background-repeat: no-repeat;
+        }
+    }
+</style>

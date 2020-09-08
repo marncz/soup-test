@@ -1,0 +1,20 @@
+@media only screen and (max-width: 768px) {
+    .u {
+        &-hidden-mobile {
+            display: none;
+        }
+
+        &-show-mobile {
+            display: block;
+        }
+
+        &-inset-content {
+            padding-left: 0;
+            padding-right: 0;
+        }
+
+        &-half {
+            width: 100% !important;
+        }
+    }
+}

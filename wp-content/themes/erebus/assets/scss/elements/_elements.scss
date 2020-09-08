@@ -1,0 +1,158 @@
+@mixin h1() {
+    font-size: 2rem;
+
+    @media only screen and (max-width: 768px) {
+        font-size: 1.8rem;
+    }
+}
+
+@mixin h2() {
+    font-size: 2rem;
+
+    @media only screen and (max-width: 768px) {
+        font-size: 1.8rem;
+    }
+}
+
+@mixin h3() {
+    font-size: 1.75rem;
+
+    @media only screen and (max-width: 768px) {
+        font-size: 1.5rem;
+    }
+}
+
+@mixin h4() {
+    font-size: 1.3rem;
+
+    @media only screen and (max-width: 768px) {
+        font-size: 1.2rem;
+    }
+}
+
+@mixin h5() {
+    font-size: 1.2rem;
+
+    @media only screen and (max-width: 768px) {
+        font-size: 1rem;
+    }
+}
+
+@mixin h6() {
+    font-size: 1rem;
+}
+
+h1 {
+    @include h1();
+}
+
+h2 {
+    @include h2();
+}
+
+h3 {
+    @include h3();
+}
+
+h4 {
+    @include h4();
+}
+
+h5 {
+    @include h5();
+}
+
+h6 {
+    @include h6();
+}
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+    font-weight: normal;
+    line-height: 1.2;
+    margin: 0;
+}
+
+p {
+    line-height: 1.6;
+}
+
+b,
+strong {
+    font-weight: 700;
+}
+
+em {
+    font-style: italic;
+}
+
+a {
+    color: inherit;
+    text-decoration: none;
+
+    img {
+        vertical-align: bottom;
+    }
+}
+
+img {
+    height: auto;
+    max-width: 100%;
+}
+
+button,
+input,
+select,
+textarea {
+    appearance: none;
+    background-color: transparent;
+    border: 0;
+    border-radius: 0;
+}
+
+button,
+input,
+optgroup,
+select,
+textarea {
+    font-family: inherit;
+}
+
+textarea {
+    resize: vertical;
+}
+
+select::-ms-expand {
+    display: none;
+}
+
+abbr[title] {
+    text-decoration: none;
+}
+
+address {
+    font-style: normal;
+}
+
+iframe {
+    border: 0;
+}
+
+sub,
+sup {
+    font-size: .7em;
+}
+
+sub {
+    bottom: -.25rem;
+    vertical-align: sub;
+}
+
+sup {
+    top: -.25rem;
+    vertical-align: super;
+}

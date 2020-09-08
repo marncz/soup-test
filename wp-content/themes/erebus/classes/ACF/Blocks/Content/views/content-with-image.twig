@@ -1,0 +1,14 @@
+<section {% if fields.scroll_title %}id="{{ fields.scroll_title }}"{% endif %} class="c-content-with-image content-section">
+    <div class="content-with-image content-with-image--{{ fields.background_colour }} {% if fields.flip_content %}content-with-image--flipped{% endif %}">
+        <div class="content-with-image__content">
+            <h1>{{ fields.title }}</h1>
+            {% if fields.subtitle != '' %}<h2>{{ fields.subtitle }}</h2>{% endif %}
+            {{ fields.content | raw }}
+        </div>
+        <div class="content-with-image__image">
+            {% set imgSize = 'half-image' %}
+            {% set imgID = fields.image %}
+            {% include 'partials/components/image.twig' %}
+        </div>
+    </div>
+</section>

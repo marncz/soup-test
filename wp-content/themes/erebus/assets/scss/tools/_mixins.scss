@@ -1,0 +1,224 @@
+@mixin visually-hidden() {
+    position: absolute;
+    margin: -1px;
+    padding: 0;
+    width: 1px;
+    height: 1px;
+    overflow: hidden;
+
+    // scss-lint:disable DuplicateProperty
+    clip: rect(0 0 0 0);
+    clip: rect(0, 0, 0, 0);
+}
+
+@mixin hide-text() {
+    text-indent: 100%;
+    white-space: nowrap;
+    overflow: hidden;
+    font-size: 0;
+    color: transparent;
+}
+
+@mixin list-reset() {
+    list-style: none;
+    margin: 0;
+    padding: 0;
+}
+
+@mixin background-cover() {
+    background-position: center center;
+    background-repeat: no-repeat;
+    background-size: cover;
+}
+
+@mixin centered-radial-gradient($color: $white, $amount: 20%) {
+    background: radial-gradient(circle, lighten($color, $amount) 10%, $color 90%);
+}
+
+@mixin stripped-background($color: $white) {
+    background: repeating-linear-gradient(45deg, darken($color, 10%), darken($color, 10%) 2px, $color 2px, $color 6px);
+}
+
+@mixin fade-to-gradient($direction, $color-1, $color-2) {
+    background: linear-gradient(to $direction, $color-1, $color-2);
+}
+
+@mixin aspect-ratio($width, $height) {
+    position: relative;
+
+    &::before {
+        content: '';
+        display: block;
+        padding-top: ($height / $width) * 100%;
+        width: 100%;
+    }
+
+    > * {
+        bottom: 0;
+        left: 0;
+        position: absolute;
+        right: 0;
+        top: 0;
+    }
+}
+
+@mixin link-style($color: $black) {
+    color: $color;
+    cursor: pointer;
+    display: inline;
+    line-height: 1.2;
+    transition: opacity $default-transition-timing;
+
+    &:hover {
+        border-bottom: 1px solid $color;
+    }
+}
+
+@mixin link-underline($color: $black, $bottom: 0, $display: 'inline-block') {
+    display: $display;
+    position: relative;
+    text-decoration: none;
+
+    &:hover::before {
+        transform: scaleX(1);
+    }
+
+    &::before {
+        background-color: $color;
+        bottom: $bottom;
+        content: '';
+        height: 4px;
+        left: 0;
+        max-width: 100%;
+        position: absolute;
+        transform: scaleX(0);
+        transform-origin: 0 0;
+        transition: transform $default-transition-timing;
+        width: 100%;
+        will-change: transform;
+    }
+}
+
+@mixin close-icon-pseudo-element($color, $height: 1rem, $left: 0, $top: 50%) {
+    &::before,
+    &::after {
+        background-color: $color;
+        content: '';
+        height: $height;
+        left: $left;
+        pointer-events: none;
+        position: absolute;
+        top: $top;
+        width: 1px;
+    }
+
+    &::before {
+        transform: translateY(-50%) rotate(45deg);
+    }
+
+    &::after {
+        transform: translateY(-50%) rotate(-45deg);
+    }
+}
+
+@mixin image-overlay($color: $black, $opacity: .5) {
+    position: relative;
+
+    &::before {
+        background-color: rgba($color, $opacity);
+        bottom: 0;
+        content: '';
+        left: 0;
+        position: absolute;
+        right: 0;
+        top: 0;
+        width: 100%;
+    }
+
+    > * {
+        position: relative;
+        z-index: 10;
+    }
+}
+
+@mixin default-element-border-styles($color: $black) {
+    border: 1px solid $color;
+    margin-top: -1px;
+    margin-left: -1px;
+}
+
+@mixin vertical-center($position: relative) {
+    transform: translateY(-50%);
+    position: $position;
+    top: 50%;
+}
+
+@mixin vertical-reset($position: relative) {
+    transform: translateY(0);
+    top: initial;
+    position: $position;
+}
+
+@mixin horizontal-center($position: relative) {
+    transform: translateX(-50%);
+    left: 50%;
+    position: $position;
+}
+
+@mixin horizontal-reset($position: relative) {
+    transform: translateX(0);
+    left: initial;
+    position: $position;
+}
+
+@mixin absolute-center($position: relative) {
+    transform: translate(-50%, -50%);
+    left: 50%;
+    position: $position;
+    top: 50%;
+}
+
+@mixin absolute-reset($position: relative) {
+    transform: translate(0, 0);
+    left: auto;
+    position: $position;
+    top: auto;
+}
+
+@mixin font-icon($unicode, $icon-size: false) {
+    content: unquote("\"\\#{$unicode}\"");
+    font-family: 'icomoon';
+
+    @if $icon-size {
+        font-size: $icon-size;
+    }
+}
+
+@mixin zoom($zoom-level) {
+    transform: scale($zoom-level);
+    transform-origin: 0 0;
+}
+
+// Taken from: https://css-tricks.com/snippets/css/fluid-typography/
+@function strip-unit($value) {
+    @return $value / ($value * 0 + 1);
+}
+
+@mixin fluid-type($min-vw, $max-vw, $min-font-size, $max-font-size) {
+    $u1: unit($min-vw);
+    $u2: unit($max-vw);
+    $u3: unit($min-font-size);
+    $u4: unit($max-font-size);
+
+    @if $u1 == $u2 and $u1 == $u3 and $u1 == $u4 {
+        font-size: $min-font-size;
+
+        @media screen and (min-width: $min-vw) {
+            font-size: calc(#{$min-font-size} + #{strip-unit($max-font-size - $min-font-size)} * ((100vw - #{$min-vw}) / #{strip-unit($max-vw - $min-vw)}));
+        }
+
+        @media screen and (min-width: $max-vw) {
+            font-size: $max-font-size;
+        }
+    }
+}

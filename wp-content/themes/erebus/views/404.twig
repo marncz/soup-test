@@ -1,0 +1,15 @@
+{% extends 'base.twig' %}
+
+{% block content %}
+    <section class="c-intro-content content-section u-bg-white u-border-bottom">
+        <div class="intro-content container container--small">
+            <div class="intro-content__content u-text-center">
+                <h6 class="intro-content__subtitle">Page not found – 404 error</h6>
+                <h1 class="intro-content__title">Oops, we’ve got our wires crossed.</h1>
+                <h4 class="u-color-prussian-blue">The page you’re looking for couldn’t be found.</h4>
+                <a href="/" class="button">Go Home</a>
+            </div>
+        </div>
+    </section>
+    {{ function('apply_filters', 'the_content', post.post_content) }}
+{% endblock %}

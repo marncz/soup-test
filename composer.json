@@ -1,0 +1,99 @@
+{
+  "name": "nanosoup/mimir",
+  "license": "Unlicense",
+  "description": "Skeleton for modern Wordpress development",
+  "type": "project",
+  "authors": [
+    {
+      "name": "Jez Emery",
+      "email": "github@hiohzo.com"
+    },
+    {
+      "name": "Harry Wiseman",
+      "email": "enquiries@harry-wiseman.co.uk"
+    }
+  ],
+  "minimum-stability": "dev",
+  "autoload": {
+    "psr-4": {
+      "Mimir\\": "scripts/composer/",
+      "Timber\\": "vendor/timber/timber/lib/",
+      "MarcinTest\\": [
+        "wp-content/themes/erebus/classes",
+        "wp-content/themes/erebus/controllers" ]
+    }
+  },
+  "require": {
+    "php": ">=7.2.0",
+    "ext-zip": "*",
+    "symfony/dotenv": "^4.2@dev",
+    "nanosoup/nemesis": "dev-master",
+    "nanosoup/zeus": "dev-master",
+    "nanosoup/erebus": "dev-master",
+    "twig/twig": "^2.7.1",
+    "wp-cli/wp-cli-bundle": "^2.1@dev",
+    "timber/timber": "dev-master",
+    "advanced-custom-fields/advanced-custom-fields-pro": "^5.8.1",
+    "wpackagist-plugin/wp-mail-smtp": "^1",
+    "deliciousbrains-plugin/wp-offload-media": "*",
+    "deliciousbrains-plugin/wp-offload-media-assets-pull": "*",
+    "wpackagist-plugin/wordpress-seo": "*",
+    "wpackagist-plugin/redis-cache": "*",
+    "wpackagist-plugin/duracelltomi-google-tag-manager": "*"
+  },
+  "require-dev": {
+    "roave/security-advisories": "dev-master",
+    "symfony/var-dumper": "^4.2@dev",
+    "symfony/debug": "^4.2@dev"
+  },
+  "config": {
+    "preferred-install": {
+      "nanosoup/erebus": "dist"
+    }
+  },
+  "repositories": [
+    {
+      "type": "package",
+      "package": {
+        "name": "advanced-custom-fields/advanced-custom-fields-pro",
+        "version": "5.8.1",
+        "type": "wordpress-plugin",
+        "dist": {
+          "type": "zip",
+          "url": "https://connect.advancedcustomfields.com/index.php?p=pro&a=download"
+        },
+        "require": {
+          "jezemery/acf-pro-installer": "^1.0",
+          "composer/installers": "^1.0"
+        }
+      }
+    },
+    {
+      "type": "composer",
+      "url": "https://wpackagist.org"
+    },
+    {
+      "type": "composer",
+      "url": "https://composer.deliciousbrains.com/72A0345315D83776A594954B1808D3C6"
+    }
+  ],
+  "scripts": {
+    "install-wordpress": "wp core download --locale=en_GB --skip-content --force",
+    "capture-creds": "Mimir\\DotEnv::postProjectCreate",
+    "create-wordpress-db": "wp db create || true",
+    "wp-post-install": "Mimir\\Wordpress::postProjectInstall",
+    "post-create-project-cmd": [
+      "@install-wordpress",
+      "@capture-creds",
+      "@create-wordpress-db",
+      "@wp-post-install"
+    ]
+  },
+  "extra": {
+    "installer-paths": {
+      "wp-content/themes/{$name}": [
+        "nanosoup/erebus"
+      ]
+    }
+  }
+}
