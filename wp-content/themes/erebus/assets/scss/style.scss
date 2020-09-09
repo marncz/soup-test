@@ -12,6 +12,8 @@
 $font-path: './assets/fonts' !default;
 $image-path: './images' !default;
 
+@import 'general';
+
 @import 'settings/variables';
 
 @import 'tools/grid',
@@ -29,9 +31,9 @@ $image-path: './images' !default;
 
 @import 'components/site-header',
         'components/site-footer',
-        'components/user-content',
-        'components/site-hero_social',
-        'components/site-block_5050',
-        'components/site-menu_overlay';
+        'components/site-elements',
+        'components/site-hero-social',
+        'components/site-block-5050',
+        'components/site-overlay';
 
 @import 'tools/mediaqueries/utilities-mediaqueries';

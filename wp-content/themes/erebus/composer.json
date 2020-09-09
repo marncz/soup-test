@@ -19,7 +19,7 @@
   ],
   "autoload": {
     "psr-4": {
-      "{{ SITE_NAMESPACE }}\\": "classes/"
+      "MarcinTest\\": "classes/"
     }
   }
 }

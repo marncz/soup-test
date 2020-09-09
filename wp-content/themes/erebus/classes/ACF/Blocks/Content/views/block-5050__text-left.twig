@@ -1,0 +1,18 @@
+<div id="{{ block.id }}" class="row my-5 block-5050 block-5050__text-left-container">
+
+    <div class="col-12 col-md-6 pl-0 pl-lg-5 py-0 py-lg-5 pr-0">
+        <div class="block-5050__text-left h-100 ml-0 ml-md-5 pb-0 pl-0 pl-md-5 text-right">
+            <div class="block-5050__content text-right mt-5 align-self-center">
+                <h2 class="block-5050__title mb-5">{{ fields.title }}</h2>
+                <p> {{ fields.content }} </p>
+
+                <button class="view-project-button mt-4"> {{ fields.button_text ?? "View Project" }} </button>
+            </div>
+         </div>
+    </div>
+
+    <div class="col-12 col-md-6 mr-0 px-0">
+        <img src="{{ Image(fields.image).src('full-image-desktop') }}" class="block-5050__text-left-image">
+    </div>
+
+</div>

@@ -1,0 +1,19 @@
+<div id="{{ block.id }}" class="container hero_social px-0">
+        <h1 class="hero_social__title my-5">{{ fields.title }}</h1>
+
+        <div class="hero_social__icons">
+                <img src="/wp-content/themes/erebus/assets/icons/vimeo_light.svg">
+                <img src="/wp-content/themes/erebus/assets/icons/facebook_light.svg" class="ml-5">
+                <img src="/wp-content/themes/erebus/assets/icons/twitter_light.svg" class="ml-5">
+        </div>
+</div>
+
+
+
+<style>
+
+#{{ block.id }} {
+        background: url(' {{ Image(fields.background_image).src('full-image-desktop') }}');
+}
+
+</style>

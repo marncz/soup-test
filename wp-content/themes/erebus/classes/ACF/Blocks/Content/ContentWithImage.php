@@ -2,10 +2,19 @@
 
 namespace MarcinTest\ACF\Blocks\Content;
 
+error_reporting(-1);
+ini_set('display_errors', 'On');
+
+require('/Volumes/WWW/marcin_test/vendor/nanosoup/nemesis/src/ACF/Blocks/Block.php');
+
+require('/Volumes/WWW/marcin_test/vendor/nanosoup/nemesis/src/ACF/Blocks/BlockInterface.php');
+
 use NanoSoup\Nemesis\ACF\BaseFields;
 use NanoSoup\Nemesis\ACF\Blocks\Block;
 use NanoSoup\Nemesis\ACF\Blocks\BlockInterface;
 use Timber\Timber;
+
+
 
 /**
  * Class ContentWithImage

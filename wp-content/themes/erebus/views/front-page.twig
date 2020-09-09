@@ -1,12 +1,5 @@
 {% extends 'base.twig' %}
 
 {% block content %}
-
-    {% include 'partials/components/5050_text_left.twig' %}
-
-    {% include 'partials/components/5050_text_right.twig' %}
-
-    {% include 'partials/components/hero_social.twig' %}
-
+   {{ function('the_content') }}
 {% endblock %}
-

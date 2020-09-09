@@ -4,7 +4,7 @@
 
             <img src="/wp-content/themes/erebus/assets/images/main-logo.svg" class="text-center my-5">
 
-            <p id="header-subtitle">
+            <p id="header__subtitle">
                 WE ARE AN AWARD WINNING ANIMATION & VFX STUDIO
             </p>
 
@@ -12,10 +12,10 @@
 
     </div>
 
- <img id="header-symbol" src="/wp-content/themes/erebus/assets/images/header_symbol.png">
+    <img id="header__symbol" src="/wp-content/themes/erebus/assets/images/header_symbol.png">
 </div>
 
-<div class="header" id="myHeader">
+<div class="header">
     <div class="row">
 
         <div class="col-3">
@@ -23,17 +23,15 @@
         </div>
 
         <div class="col-3 offset-6 text-right pr-4 my-4">
-            <span id="menu_open" class="menu-controls" onclick="toggleNavigation()">MENU &#9776;</span>
-            <span id="menu_close" class="menu-controls" onclick="toggleNavigation()">CLOSE <img src="/wp-content/themes/erebus/assets/icons/menu_close.svg"></span>
+            <span id="menu-open" class="overlay__control" onclick="toggleNavigation()">MENU &#9776;</span>
+            <span id="menu-close" class="overlay__control" onclick="toggleNavigation()">CLOSE <img src="/wp-content/themes/erebus/assets/icons/menu_close.svg"></span>
         </div>
 
     </div>
-
 </div>
 
- <div id="myNav" class="overlay">
-
-    <div id="overlay-content">
+ <div id="overlay" class="h-100">
+    <div id="overlay__content" class="align-self-center">
         <a href="#">About</a>
         <a href="#">Showreel</a>
         <a href="#">Lab</a>
@@ -41,7 +39,7 @@
         <a href="#">News</a>
         <a href="#">Contact</a>
 
-        <div id="overlay-social-icons">
+        <div id="overlay__social-icons">
             <img src="/wp-content/themes/erebus/assets/icons/vimeo_light.svg">
             <img src="/wp-content/themes/erebus/assets/icons/facebook_light.svg" class="ml-5">
             <img src="/wp-content/themes/erebus/assets/icons/twitter_light.svg" class="ml-5">
