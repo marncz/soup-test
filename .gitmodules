@@ -1,0 +1,3 @@
+[submodule "wp-content/themes/erebus"]
+	path = wp-content/themes/erebus
+	url = https://github.com/marncz/soup-test-theme
